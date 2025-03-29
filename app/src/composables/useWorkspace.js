@@ -11,7 +11,10 @@ const preflightCommitment = 'confirmed'
 export const useWorkspace = () => workspace
 
 export const initWorkspace = () => {
-    const connection = new Connection(process.env.VITE_CLUSTER_URL, commitment)
+    const connection = new Connection(import.meta.env.VITE_CLUSTER_URL, {
+        commitment,
+        confirmTransactionInitialTimeout: 60000
+    })
 
     const wallet = useAnchorWallet();
 
