@@ -1,0 +1,103 @@
+{
+  "address": "DkZSbPrH9Sa8Rvw8A4qW6U7zpQqBQhGUeYeSowHRXuBg",
+  "metadata": {
+    "name": "solana_twitter",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "send_tweet",
+      "discriminator": [
+        179,
+        213,
+        79,
+        165,
+        123,
+        247,
+        82,
+        109
+      ],
+      "accounts": [
+        {
+          "name": "tweet",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "author",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "topic",
+          "type": "string"
+        },
+        {
+          "name": "content",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Tweet",
+      "discriminator": [
+        229,
+        13,
+        110,
+        58,
+        118,
+        6,
+        20,
+        79
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "TopicTooLong",
+      "msg": "The topic is too long."
+    },
+    {
+      "code": 6001,
+      "name": "ContentTooLong",
+      "msg": "The content is too long."
+    }
+  ],
+  "types": [
+    {
+      "name": "Tweet",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "author",
+            "type": "pubkey"
+          },
+          {
+            "name": "timestam",
+            "type": "i64"
+          },
+          {
+            "name": "topic",
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
